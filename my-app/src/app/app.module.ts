@@ -1,21 +1,26 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { routes } from './app.router';
+import { FormsModule } from "@angular/forms";
 
 import { AppComponent } from './app.component';
-import { AppTemplateDriven } from "./Template Driven/app.template-driven";
+import { TemplateDrivenComponent } from "./template-driven/template-driven.component";
 import { ModelDrivenComponent } from './model-driven/model-driven.component';
+import { HomeComponent } from './home/home.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    AppTemplateDriven,
-    ModelDrivenComponent
+    TemplateDrivenComponent,
+    ModelDrivenComponent,
+    TemplateDrivenComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
-    
+    routes,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
