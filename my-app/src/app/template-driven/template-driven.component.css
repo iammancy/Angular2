@@ -1,3 +1,6 @@
 .ng-valid[required], .ng-valid.required  {
   border-left: 10px solid #42A948; /* green */
 }
+input.ng-invalid[required].ng-dirty.ng-touched, input.ng-invalid.required.ng-dirty.ng-touched  {
+  border-left: 10px solid red; /* red */
+}

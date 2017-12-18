@@ -4,16 +4,39 @@
   <form #userForm="ngForm" (ngSubmit)="onSubmit(userForm.value)">
     <div class="form-group">
       <label>First Name</label>
-      <input type="text" class="form-control" #nameRef required name="firstname" [(ngModel)]="firstname">
-      {{nameRef.className}}
+      <input type="text" class="form-control" #nameRef="ngModel" required minlength="4" name="firstname" [(ngModel)]="firstname">
+    </div>
+    <div *ngIf="nameRef.errors && (nameRef.touched || nameRef.dirty)">
+      <div [hidden]="!nameRef.errors.required" class="alert alert-danger">
+        Please Enter Your Name
+      </div>
+      <div [hidden]="!nameRef.errors.minlength" class="alert alert-danger">
+        Please Enter Atleast 4 Characters
+      </div>
     </div>
     <div class="form-group">
       <label>Last Name</label>
-      <input type="text" class="form-control" name="lastname" [(ngModel)]="lastname">
+      <input type="text" class="form-control" #lastRef="ngModel" minlength="4" required name="lastname" [(ngModel)]="lastname">
+    </div>
+    <div *ngIf="lastRef.errors && (lastRef.touched || lastRef.dirty)">
+      <div [hidden]="!lastRef.errors.required" class="alert alert-danger">
+        Please Enter Your Lastname
+      </div>
+      <div [hidden]="!lastRef.errors.minlength" class="alert alert-danger">
+        Please Enter Atleast 4 Characters
+      </div>
     </div>
     <div class="form-group">
       <label>Email</label>
-      <input type="text" class="form-control" name="email" [(ngModel)]="email"> 
+      <input type="text" class="form-control" #emailRef="ngModel" pattern="[a-z.$0-9]*@[a-z]*.[a-z]*" required name="email" [(ngModel)]="email">
+      <div *ngIf="emailRef.errors && (emailRef.touched || emailRef.dirty)">
+        <div [hidden]="!emailRef.errors.required" class="alert alert-danger">
+          Please Enter Your email
+        </div>
+        <div [hidden]="!emailRef.errors.pattern" class="alert alert-danger">
+          Please Enter Atleast 4 Characters
+        </div>
+      </div>
     </div>
     <div class="form-group">
       <label>Password</label>
@@ -30,13 +53,21 @@
       </div>
       <div class="form-group">
         <label>Zipcode</label>
-        <input type="text" class="form-control" name="zipcode" [(ngModel)]="zip">
+        <input type="text" class="form-control" required #pinRef="ngModel" pattern="^[0-9][1-9]{4}$" name="zipcode" [(ngModel)]="zip">
+        <div *ngIf="pinRef.errors && (pinRef.touched || pinRef.dirty)">
+          <div [hidden]="!pinRef.errors.pattern" class="alert alert-danger">
+            Please Enter 5 Digit Pincode
+          </div>
+          <div [hidden]="!pinRef.errors.required" class="alert alert-danger">
+            Pincode is a Required Field
+          </div>
+        </div>
       </div>
     </div>
     <button type="submit" class="btn btn-primary">Submit</button>
   </form>
 
-  Hey {{firstname}} {{lastname}},<br>
-  Youremail id is {{email}}.<br>
-  You live in {{street}}, in {{city}} and your zipcode is {{zip}}
+  Hey {{firstname}} {{lastname}},
+  <br> Your email id is {{email}}.
+  <br> You live in {{street}}, in {{city}} and your zipcode is {{zip}}
 </div>
