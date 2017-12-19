@@ -1,3 +1,37 @@
-<p>
-  model-driven works!
-</p>
+<div class="container">
+  <h1>Model Driven Forms</h1>
+  <h2>User Form</h2>
+  <form [formGroup]="userForm" class="form-group" (ngSubmit)="onSubmit()">
+    <div class="form-group">
+      <label>First Name</label>
+      <input type="text" class="form-control" formControlName="firstname">
+    </div>
+    <div class="form-group">
+      <label>Last Name</label>
+      <input type="text" class="form-control" formControlName="lastname">
+    </div>
+    <div class="form-group">
+      <label>Email</label>
+      <input type="text" class="form-control" formControlName="email">
+    </div>
+    <div class="form-group">
+      <label>Password</label>
+      <input type="password" class="form-control" formControlName="password">
+    </div>
+    <div class="form-group" formGroupName="address">
+    <div class="form-group">
+      <label>Street</label>
+      <input type="text" class="form-control" formControlName="street">
+    </div>
+    <div class="form-group">
+      <label>City</label>
+      <input type="text" class="form-control" formControlName="city">
+    </div>
+    <div class="form-group">
+      <label>Zipcode</label>
+      <input type="text" class="form-control" formControlName="zipcode">
+    </div>
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+  </form>
+</div>
