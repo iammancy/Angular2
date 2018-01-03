@@ -7,8 +7,10 @@ import { FormGroup, FormControl } from "@angular/forms";
   styleUrls: ['./model-driven.component.css']
 })
 export class ModelDrivenComponent implements OnInit {
-
-  constructor() { }
+  userForm  : FormGroup;
+  constructor() { 
+    
+  }
 
   ngOnInit() {
    
@@ -27,6 +29,6 @@ export class ModelDrivenComponent implements OnInit {
   }
   onSubmit(){
     console.log('he');
-    console.log(this.userForm.value);
-  }
+    console.log(this.userForm);
+    }
 }
