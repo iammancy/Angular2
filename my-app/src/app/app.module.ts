@@ -8,6 +8,9 @@ import { AppComponent } from './app.component';
 import { TemplateDrivenComponent } from "./template-driven/template-driven.component";
 import { ModelDrivenComponent } from './model-driven/model-driven.component';
 import { HomeComponent } from './home/home.component';
+import { FbModelDrivenComponent } from "./fb-model-driven/fb-model-driven.component";
+
+import { ListService } from "./list.service";
 
 
 @NgModule({
@@ -16,7 +19,8 @@ import { HomeComponent } from './home/home.component';
     TemplateDrivenComponent,
     ModelDrivenComponent,
     TemplateDrivenComponent,
-    HomeComponent
+    HomeComponent,
+    FbModelDrivenComponent
   ],
   imports: [
     BrowserModule,
@@ -25,7 +29,7 @@ import { HomeComponent } from './home/home.component';
     ReactiveFormsModule,
     HttpModule
   ],
-  providers: [],
+  providers: [ListService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

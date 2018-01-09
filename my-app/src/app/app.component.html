@@ -19,7 +19,7 @@
         <a class="nav-link" routerLink="model-driven">Model Driven</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#">Model Driven (Form Builder)</a>
+        <a class="nav-link" routerLink="fb-model-driven">Model Driven (Form Builder)</a>
       </li>
     </ul>
     <form class="form-inline my-2 my-lg-0">
@@ -29,6 +29,10 @@
   </div>
 </nav>
 <div class="container">
+  <div *ngFor="let data of FormList">
+    {{data.Name}}
+  </div>
 <router-outlet></router-outlet>
 </div>
+
 
